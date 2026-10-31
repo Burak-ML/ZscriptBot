@@ -1,76 +1,102 @@
 <div align="center">
-  <img src="assets/banner.png" alt="ZscriptBot Banner" width="100%" />
-  
-  <h1>ZscriptBot - Ultimate Discord Companion</h1>
-  <p><strong>Gelişmiş bilet (ticket) sistemi, ürün satışı, lisans yönetimi ve abonelik sistemine sahip modern Discord botu.</strong></p>
+  <img src="assets/banner.png" alt="ZscriptBot banner" width="100%" />
 
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Discord.js-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+  <h1>ZscriptBot</h1>
+  <p><strong>A Discord bot for support tickets, product sales, license keys and timed subscriptions.</strong></p>
+
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white" alt="discord.js" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Prisma-3982CE?logo=prisma&logoColor=white" alt="Prisma" />
+  <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker" />
 </div>
 
-<br />
+## Features
 
-## 🌟 Özellikler
+- **Ticket system.** Support, sales, collaboration and custom ticket categories, automatic transcripts and permission handling.
+- **Products and orders.** Show a product catalog in Discord, sell license keys and deliver them automatically. Orders can be cancelled or refunded.
+- **Subscriptions.** Grant a role for a fixed period, then extend, freeze or cancel it. Scheduled jobs warn users before expiry and remove the role when a subscription ends.
+- **License key pool.** Keys are generated and tracked per product.
+- **In-Discord setup.** An admin configures ticket categories, archive channels and other settings with the `/kurulum panel` command.
+- **Reliable infrastructure.** TypeScript, discord.js v14, PostgreSQL with Prisma, Redis with BullMQ for background jobs, and a Docker Compose setup.
 
-- **🎫 Gelişmiş Bilet (Ticket) Sistemi:** Destek, Satış, İşbirliği ve Özel kategorilerde ozel bilet oluşturma, otomatik transcript alma ve gelismis yetkilendirme paneli.
-- **🛒 Ürün ve Satış:** Discord üzerinden ürün sergileme, lisans anahtarı satışı ve otomatik teslimat.
-- **🔄 Abonelik Sistemi:** Kullanıcılara süreli abonelik (Rol) verme, abonelik dondurma, uzatma ve iptal etme özellikleri.
-- **🔐 Lisans Yönetimi:** Ürün satışları için otomatik oluşturulan, takip edilebilir lisans anahtarı havuzu.
-- **🛡️ Gelişmiş Admin Paneli:** Tüm ayarları (Bilet kategorileri, arşiv kanalları vs.) Discord içerisinden `/kurulum` komutu ile görsel arayüzle yapılandırma.
-- **⚡ Yüksek Performans:** TypeScript, Discord.js v14, PostgreSQL (Prisma ORM) ve Redis Cache ile desteklenmiş ölçeklenebilir altyapı. Tamamen Dockerize edilmiştir.
+## Commands
 
-## 🚀 Kurulum
+The command names are in Turkish, as the bot serves a Turkish community.
 
-Projeyi kendi sunucunuzda çalıştırmak için aşağıdaki adımları izleyin.
+| Command | Who | Purpose |
+|---------|-----|---------|
+| `/ürünler` | Everyone | List active products |
+| `/siparişler` | Everyone | Show your orders |
+| `/kurulum panel`, `/kurulum durum` | Admin | Open the setup panel, show configuration status |
+| `/ürün-ekle`, `/ürün-durum`, `/ürün-sil` | Admin | Create a product, set it active, passive or archived, delete it |
+| `/abone-ver`, `/abone-uzat`, `/abone-dondur`, `/abone-iptal`, `/abone-bilgi` | Admin | Grant, extend, freeze, cancel and inspect subscriptions |
+| `/sipariş-iptal`, `/sipariş-iade` | Admin | Cancel or refund an order |
+| `/sohbet-temizle` | Admin | Delete up to 100 messages |
 
-### Gereksinimler
+## Getting started
 
-- Node.js (v18+)
-- Docker & Docker Compose
-- Discord Bot Token & Client ID
+### Requirements
 
-### Adımlar
+- Node.js 22 or later
+- Docker and Docker Compose
+- A Discord bot token and client ID
 
-1. **Repoyu Klonlayın:**
-   ```bash
-   git clone https://github.com/Kayra-ML/ZscriptBot.git
-   cd ZscriptBot
-   ```
+### Run with Docker
 
-2. **Çevresel Değişkenleri Ayarlayın:**
-   ```bash
-   cp .env.example .env
-   ```
-   `.env` dosyanızı açın ve aşağıdaki bilgileri doldurun:
-   ```env
-   DISCORD_TOKEN=sizin_bot_tokeniniz
-   CLIENT_ID=sizin_bot_client_id_niz
-   DATABASE_URL=postgresql://zscript:zscript@postgres:5432/zscript
-   REDIS_URL=redis://redis:6379
-   GUILD_ID=sizin_sunucu_id_niz  # Komutların hızlı yüklenmesi için opsiyonel
-   ```
+```bash
+git clone https://github.com/Burak-ML/ZscriptBot.git
+cd ZscriptBot
+cp .env.example .env
+```
 
-3. **Docker ile Başlatın:**
-   Tüm veritabanı (Postgres + Redis) ve bot altyapısı Docker Compose ile tek komutta kalkar.
-   ```bash
-   docker compose up --build -d
-   ```
+Fill in `.env`:
 
-4. **Botu Kurun:**
-   Discord sunucunuza botu davet ettikten sonra **Yönetici (Administrator)** yetkisine sahip bir hesap ile `/kurulum panel` komutunu kullanarak botun çalışacağı kanalları ve kategorileri ayarlayın.
+```env
+DISCORD_TOKEN=your_bot_token
+CLIENT_ID=your_application_id
+DATABASE_URL=postgresql://zscript:zscript@postgres:5432/zscript
+REDIS_URL=redis://redis:6379
+GUILD_ID=your_server_id   # optional, makes slash commands appear immediately
+```
 
-## 🛠️ Kullanılan Teknolojiler
+Change the default database password before using this outside local development, and keep it in sync with `docker-compose.yml`.
 
-- **Dil:** TypeScript
-- **Kütüphane:** Discord.js v14
-- **Veritabanı:** PostgreSQL
-- **ORM:** Prisma
-- **Önbellek:** Redis
-- **Dağıtım:** Docker & Docker Compose
+```bash
+docker compose up --build -d
+```
 
-## 📄 Lisans
-Bu proje özel kullanım için geliştirilmiştir.
+Then invite the bot to your server and run `/kurulum panel` as an administrator to choose the channels and categories it should use.
+
+### Local development
+
+```bash
+npm install            # also generates the Prisma client
+npm run prisma:dev     # create and apply migrations
+npm run dev            # start with live reload
+```
+
+| Script | Purpose |
+|--------|---------|
+| `npm run build` / `npm start` | Compile and run the production build |
+| `npm run typecheck` / `npm run lint` | Type check and lint |
+| `npm test` | Run the Vitest suite |
+| `npm run prisma:migrate` | Apply migrations in deployment |
+
+## Project structure
+
+```
+src/
+  bot/        client, events, slash command definitions and interaction routing
+  modules/    tickets, products, orders, payments, licenses, subscriptions, roles, setup, welcome, logs
+  services/   shared services (IDs, license keys, permissions, guild settings)
+  jobs/       BullMQ jobs for subscription warnings and expiry
+  lib/        embeds, errors, locks, Prisma and Redis clients
+prisma/       schema and migrations
+```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
