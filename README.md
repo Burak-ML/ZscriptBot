@@ -1,17 +1,10 @@
-<div align="center">
-  <img src="assets/banner.png" alt="ZscriptBot banner" width="100%" />
+# ZscriptBot
 
-  <h1>ZscriptBot</h1>
-  <p><strong>A Discord bot for support tickets, product sales, license keys and timed subscriptions.</strong></p>
+**Discord operations in one place: support tickets, product licensing, subscriptions and scheduled role management.**
 
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white" alt="discord.js" />
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Prisma-3982CE?logo=prisma&logoColor=white" alt="Prisma" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker" />
-</div>
+ZscriptBot connects community support to digital-product administration. It combines Discord interactions with a relational database and background jobs, with clear setup and local development instructions below.
+
+**Explore:** [Features](#features) · [Commands](#commands) · [Getting started](#getting-started) · [Project structure](#project-structure)
 
 ## Features
 
