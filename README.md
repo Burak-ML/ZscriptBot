@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/banner.png" alt="ZscriptBot banner" width="100%" /></p>
+
 # ZscriptBot
 
 **Discord operations in one place: support tickets, product licensing, subscriptions and scheduled role management.**
